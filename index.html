@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuizForge — Test Your Knowledge</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Clash Display + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Animated background blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+  <div class="bg-blob blob-3"></div>
+
+  <div class="app-wrapper">
+
+    <!-- ── START SCREEN ── -->
+    <div id="start-screen" class="screen active">
+      <div class="card start-card">
+        <div class="brand-badge">QuizForge</div>
+        <h1 class="hero-title">Think.<br/>Guess.<br/><em>Win.</em></h1>
+        <p class="hero-sub">10 questions across Science, History, Geography & Tech. Ready to flex your brain?</p>
+        <div class="meta-pills">
+          <span class="pill">⏱ 20s / question</span>
+          <span class="pill">🎯 10 Questions</span>
+          <span class="pill">🔀 Shuffled</span>
+        </div>
+        <button id="start-btn" class="btn btn-primary">Start Quiz →</button>
+      </div>
+    </div>
+
+    <!-- ── QUIZ SCREEN ── -->
+    <div id="quiz-screen" class="screen">
+      <div class="card quiz-card">
+
+        <!-- Header bar -->
+        <div class="quiz-header">
+          <div class="progress-wrap">
+            <div class="progress-label">
+              <span id="q-current">1</span> / <span id="q-total">10</span>
+            </div>
+            <div class="progress-track">
+              <div id="progress-bar" class="progress-fill"></div>
+            </div>
+          </div>
+          <div class="score-badge">
+            Score: <span id="live-score">0</span>
+          </div>
+        </div>
+
+        <!-- Timer ring -->
+        <div class="timer-wrap">
+          <svg class="timer-ring" viewBox="0 0 60 60">
+            <circle class="ring-bg" cx="30" cy="30" r="26"/>
+            <circle id="ring-fill" class="ring-fill" cx="30" cy="30" r="26"/>
+          </svg>
+          <span id="timer-count" class="timer-num">20</span>
+        </div>
+
+        <!-- Question -->
+        <div id="question-text" class="question-text"></div>
+
+        <!-- Options -->
+        <div id="options-grid" class="options-grid"></div>
+
+        <!-- Feedback -->
+        <div id="feedback" class="feedback hidden"></div>
+
+        <!-- Next button -->
+        <button id="next-btn" class="btn btn-next hidden">Next Question →</button>
+
+      </div>
+    </div>
+
+    <!-- ── RESULT SCREEN ── -->
+    <div id="result-screen" class="screen">
+      <div class="card result-card">
+        <div id="result-emoji" class="result-emoji">🏆</div>
+        <div id="result-label" class="result-label">Excellent!</div>
+        <div class="score-circle">
+          <svg viewBox="0 0 120 120">
+            <circle class="sc-bg" cx="60" cy="60" r="52"/>
+            <circle id="sc-fill" class="sc-fill" cx="60" cy="60" r="52"/>
+          </svg>
+          <div class="score-inner">
+            <span id="final-score">0</span>
+            <span class="score-denom">/10</span>
+          </div>
+        </div>
+        <p id="result-message" class="result-message"></p>
+        <div class="result-stats">
+          <div class="stat"><span id="stat-correct">0</span><label>Correct</label></div>
+          <div class="stat-div"></div>
+          <div class="stat"><span id="stat-wrong">0</span><label>Wrong</label></div>
+          <div class="stat-div"></div>
+          <div class="stat"><span id="stat-skipped">0</span><label>Skipped</label></div>
+        </div>
+        <button id="restart-btn" class="btn btn-primary">↺ Restart Quiz</button>
+      </div>
+    </div>
+
+  </div><!-- /app-wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>
